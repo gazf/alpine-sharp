@@ -1,0 +1,7 @@
+box: debian:jessie
+
+build: &build_pipeline
+  steps:
+    - internal/docker-build:
+        dockerfile: Dockerfile
+        image-name: alpine-sharp
