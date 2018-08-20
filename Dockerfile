@@ -18,11 +18,13 @@ RUN set -x && \
 FROM node:alpine
 
 COPY --from=builder node_modules node_modules
+COPY test/index.js index.js
 
 RUN set -x && \
   apk add \
     --no-cache --update \
     --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
-    vips fftw libc6-compat
+    vips fftw libc6-compat && \
+  node .
 
 LABEL  maintainer "gazf <gazfff@gmail.com>"
