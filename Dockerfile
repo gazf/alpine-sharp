@@ -1,5 +1,3 @@
-LABEL  maintainer "gazf <gazfff@gmail.com>"
-
 # ------------ builder ------------
 # base image https://hub.docker.com/_/node/
 FROM node:alpine as builder
@@ -26,3 +24,5 @@ RUN set -x && \
     --no-cache --update \
     --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
     vips fftw libc6-compat
+
+LABEL  maintainer "gazf <gazfff@gmail.com>"
