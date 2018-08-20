@@ -25,6 +25,7 @@ RUN set -x && \
     --no-cache --update \
     --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
     vips fftw libc6-compat && \
-  node .
+  node . && \
+  rm -f index.js
 
 LABEL  maintainer "gazf <gazfff@gmail.com>"
