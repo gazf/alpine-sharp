@@ -3,3 +3,11 @@
 Buildin [sharp](https://github.com/lovell/sharp) module.
 
 Base image: alpine:node
+
+## Docker Pull Command
+
+```
+docker pull gazf/alpine-sharp
+```
+
+https://hub.docker.com/r/gazf/alpine-sharp/
