@@ -5,8 +5,9 @@ FROM node:alpine as builder
 RUN set -x && \
   apk add \
     --no-cache --update \
-    --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
-    libtool automake autoconf nasm vips-dev fftw-dev gcc g++ make libc6-compat
+    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
+    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
+    libtool build-base automake autoconf nasm vips-dev fftw-dev gcc g++ make libc6-compat
 
 RUN set -x && \
   npm set progress=false && \
@@ -23,8 +24,10 @@ COPY test/index.js index.js
 RUN set -x && \
   apk add \
     --no-cache --update \
-    --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
+    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
+    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
     vips fftw libc6-compat && \
+  npm install sharp && \
   node . && \
   rm -f index.js
 
