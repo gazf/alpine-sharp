@@ -27,7 +27,7 @@ RUN set -x && \
     --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
     --repository https://dl-3.alpinelinux.org/alpine/edge/main \
     vips fftw libc6-compat && \
-  npm install && \
+  npm install sharp && \
   node . && \
   rm -f index.js
 
