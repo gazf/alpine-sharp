@@ -7,7 +7,7 @@ RUN set -x && \
     --no-cache --update \
     --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
     --repository https://dl-3.alpinelinux.org/alpine/edge/main \
-    libtool build-base automake autoconf nasm vips-dev fftw-dev gcc g++ make libc6-compat
+    vips-dev fftw-dev build-base
 
 RUN set -x && \
   npm set progress=false && \
