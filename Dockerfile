@@ -2,12 +2,12 @@
 # base image https://hub.docker.com/_/node/
 FROM node:alpine as builder
 
-RUN set -x && \
-  apk add \
-    --no-cache --update \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
-    libtool build-base automake autoconf nasm vips-dev fftw-dev gcc g++ make libc6-compat
+#RUN set -x && \
+#  apk add \
+#    --no-cache --update \
+#    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
+#    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
+#    libtool build-base automake autoconf nasm vips-dev fftw-dev gcc g++ make libc6-compat
 
 RUN set -x && \
   apk add \
