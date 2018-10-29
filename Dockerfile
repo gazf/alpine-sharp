@@ -13,6 +13,7 @@ RUN set -x && \
   apk add \
     --no-cache --update \
     --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
+    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
     vips-dev fftw-dev build-base
 
 RUN set -x && \
