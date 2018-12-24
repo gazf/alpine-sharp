@@ -3,7 +3,7 @@
 FROM node:alpine as builder
 
 RUN set -x && \
-  apk add vips-dev fftw-dev build-base --update-cache \
+  apk add vips-dev fftw-dev build-base python --update-cache \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/main
 
