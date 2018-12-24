@@ -3,11 +3,9 @@
 FROM node:alpine as builder
 
 RUN set -x && \
-  apk add \
-    --no-cache --update \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
-    vips-dev fftw-dev build-base
+  apk add vips-dev fftw-dev build-base --update-cache \
+    --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
+    --repository https://alpine.global.ssl.fastly.net/alpine/edge/main
 
 RUN set -x && \
   npm set progress=false && \
@@ -22,11 +20,10 @@ COPY --from=builder node_modules node_modules
 COPY test/index.js index.js
 
 RUN set -x && \
-  apk add \
-    --no-cache --update \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/testing \
-    --repository https://dl-3.alpinelinux.org/alpine/edge/main \
-    vips fftw libc6-compat && \
+  apk add vips fftw --update-cache \
+    --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
+    --repository https://alpine.global.ssl.fastly.net/alpine/edge/main \
+    libc6-compat && \
   npm install sharp && \
   node . && \
   rm -f index.js
