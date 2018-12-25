@@ -1,6 +1,7 @@
 # ------------ builder ------------
 # base image https://hub.docker.com/_/node/
 FROM node:alpine as builder
+COPY package.json package.json
 
 RUN set -x && \
   apk add vips-dev fftw-dev build-base python --update-cache \
@@ -10,14 +11,14 @@ RUN set -x && \
 RUN set -x && \
   npm set progress=false && \
   npm config set depth 0 && \
-  npm install sharp --save
+  npm install
 
 # ------------ main ------------
 # base image https://hub.docker.com/_/node/
 FROM node:alpine
 
 COPY --from=builder node_modules node_modules
-COPY --from=builder package.json package.json
+COPY package.json package.json
 COPY test/index.js index.js
 
 RUN set -x && \
