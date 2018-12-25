@@ -10,13 +10,14 @@ RUN set -x && \
 RUN set -x && \
   npm set progress=false && \
   npm config set depth 0 && \
-  npm install sharp
+  npm install sharp --save
 
 # ------------ main ------------
 # base image https://hub.docker.com/_/node/
 FROM node:alpine
 
 COPY --from=builder node_modules node_modules
+COPY --from=builder package.json package.json
 COPY test/index.js index.js
 
 RUN set -x && \
@@ -24,7 +25,7 @@ RUN set -x && \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/main \
     libc6-compat && \
-  npm install sharp && \
+  npm install && \
   node . && \
   rm -f index.js
 
