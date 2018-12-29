@@ -30,8 +30,7 @@ RUN set -x && \
 RUN set -x && \
   apk add vips fftw --update-cache \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
-    --repository https://alpine.global.ssl.fastly.net/alpine/edge/main \
-    libc6-compat && \
+    --repository https://alpine.global.ssl.fastly.net/alpine/edge/main/ && \
   npm install && \
   node . && \
   rm -f index.js
