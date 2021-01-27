@@ -3,6 +3,6 @@
   "description": "Docker image for alpine-sharp",
   "version": "0.0.1",
   "dependencies": {
-    "sharp": "^0.25.3"
+    "sharp": "^0.27.1"
   }
 }
